@@ -1,4 +1,4 @@
-# Nano Survey Sampling With Geographic Segmentation
+# Nano Survey Sampling with Geographic Segmentation
 
 [Nate: Add an introductory paragraph here of context and motivation behind the repo. This can be pulled from the blog post. Then for the last line link the blog post]
 
