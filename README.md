@@ -1,10 +1,14 @@
 # Nano Sampling with Geographic Segmentation
 
-Gathering accurate information in rural areas is often costly and difficult, which means local leaders may lack important knowledge on their constituents’ needs required to inform evidence-based decisions. Given IDinsight’s focus on data-driven decisions in the social sector, we see this as an important information gap. To this end, IDinsight is developing an innovative system (Nano) that seeks to transform collection and usage of information by chiefs in Zambia, likely a data-underserved group. Nano aims to provide chiefs with accurate information to enable resolution of local challenges in a timely manner.
+## Introduction
 
-In Nano's scoping stages, we identified the need to collect household-level data from a representative sample of households. However, there was a lack of reliable and up-to-date list of households (or villages) that we could use as a sampling frame (and from which to draw a sample). An additional challenge is Nano’s mandate to be scalable and provide information at low cost, so censusing the whole chiefdom to create a sampling frame was not an option. Therefore, we strove to create a sampling methodology that was economical, scalable and easy for surveyors to implement.
+Gathering accurate information in rural areas is often costly and difficult, which means local leaders may lack important knowledge on their constituents’ needs required to inform evidence-based decisions. Given IDinsight’s focus on data-driven decisions in the social sector, we see this as an important information gap.
+
+Further, we identified the need to collect household-level data from a representative sample of households. However, there was a lack of reliable and up-to-date list of households (or villages) that we could use as a sampling frame (and from which to draw a sample). An additional challenge is Nano’s mandate to be scalable and provide information at low cost, so censusing the whole chiefdom to create a sampling frame was not an option. Therefore, we strove to create a sampling methodology that was economical, scalable and easy for surveyors to implement.
 
 This notebook contains code to implement the geographic segmentation portion of Nano's sampling strategy. A more detailed description is contained in the corresponding blog post (LINK).
+
+## Geographic Segmentation Steps
 
 The geographic segmentation is implemented in Python as follows:
 1) Plot all relevant boundaries and population/structure datasets to visualize the study area, boundaries (e.g. rivers and roads) and population (e.g. Facebook and OpenStreetMap datasets) information and ensure that the data makes sense.
@@ -17,29 +21,29 @@ The geographic segmentation is implemented in Python as follows:
 
 The code requires a number of python packages, file structure and input/output information. These are described below.
 
-Packages: os, pandas, numpy, matplotlib, shapely, shapefile, functools, pyproj.
+**Packages:** os, pandas, numpy, matplotlib, shapely, shapefile, functools, pyproj.
 
-File structure:
-1) geographical_segmentation.ipynb: the main python script as a Jupyter Notebook,
-2) geographical_segmentation.py: the main python script (idential to geographical_segmentation.ipynb),
-3) functions/clean_data.py: user built functions to clean data,
-4) functions/mapping.py: user built functions to create maps,
-5) shapefiles: folder to contain all Shapefiles used in analysis,
-6) plots: folder to save all plots created in analysis,
-7) data: folder to contain the primary output from analysis (see 1 of the Outputs section below).
+**File structure:**
+1) *geographical_segmentation.ipynb*: the main python script as a Jupyter Notebook,
+2) *geographical_segmentation.py*: the main python script (idential to geographical_segmentation.ipynb),
+3) *functions/clean_data.py*: user built functions to clean data,
+4) *functions/mapping.py*: user built functions to create maps,
+5) *shapefiles*: folder to contain all Shapefiles used in analysis,
+6) *plots*: folder to save all plots created in analysis,
+7) *data*: folder to contain the primary output from analysis (see 1 of the Outputs section below).
 
-Inputs (all saved as shapefiles in shapefiles folder):
-1) Boundary of study area (Mukobela Chiefdom in our case). This should be in a coordinate reference system (CRS) using meters so that the EAs can be constructed using a width and length specified in meters. The CRS system for meters in southern africa is EPSG: 32735, and one can change a shapefiles CRS in QGIS, 
-2) Population estimates (Facebook and roofs dataset in our case). This should be in the CRS using latitude and longitude, which is EPSG: 4326, 
-3) Any other relevant boundaries to separate EAs (roads and rivers in our case). This should be in the CRS using latitude and longitude, which is EPSG: 4326.
+**Inputs (all saved as shapefiles in shapefiles folder):**
+1) *Boundary of study area* (Mukobela Chiefdom in our case). This should be in a coordinate reference system (CRS) using meters so that the EAs can be constructed using a width and length specified in meters. The CRS system for meters in southern africa is EPSG: 32735, and one can change a shapefiles CRS in QGIS, 
+2) *Population estimates* (Facebook and roofs dataset in our case). This should be in the CRS using latitude and longitude, which is EPSG: 4326, 
+3) *Any other relevant boundaries to separate EAs* (roads and rivers in our case). This should be in the CRS using latitude and longitude, which is EPSG: 4326.
 
-Outputs:
-1) data/EA_information.csv: a CSV with all EAs coordinates and population estimates. This file allows us to construct our sampling frame.
-2) shapefiles: there are 4 new shapefiles saved to the shapefiles folder. There are described below:
- 2a) study_area_4326.shp: the study area converted into the latitude and longitude coordinate reference system.
- 2b) grids_final_4326.shp: the EAs with an unique identify and whether the EA contains a non-zero Facebook population estimate and/or OpenStreetMap buildings.
- 2c) roads_final_4326.shp: the roads used as a boundary to construct the EAs. This only includes "large" roads.
- 2d) rivers_final_4326.shp: the rivers used as a boundary to construct the EAs. This only includes "large" rivers.
+**Outputs:**
+1) *data/EA_information.csv*: a CSV with all EAs coordinates and population estimates. This file allows us to construct our sampling frame.
+2) *shapefiles*: there are 4 new shapefiles saved to the shapefiles folder. There are described below:<br>
+ 2a) *study_area_4326.shp*: the study area converted into the latitude and longitude coordinate reference system.<br>
+ 2b) *grids_final_4326.shp*: the EAs with an unique identify and whether the EA contains a non-zero Facebook population estimate and/or OpenStreetMap buildings.<br>
+ 2c) *roads_final_4326.shp*: the roads used as a boundary to construct the EAs. This only includes "large" roads.<br>
+ 2d) *rivers_final_4326.shp*: the rivers used as a boundary to construct the EAs. This only includes "large" rivers.
 
 ### Installing Prerequisites
 
@@ -54,13 +58,13 @@ pip install package_name
 ### Assembling Input Files
 
 The input files with pre-processing instructed are listed below. All of these files should be saved in the shapefiles folder. 
-1) study_area_32735.shp: boundary of study area. We created this by drawing the boundary on QGIS. If the study area is an administrative region (e.g. country, state, district) then there are possibly publicly available shapefiles. A good place to look for such files is the HumData website (https://data.humdata.org/).
- 1a) This should be in a CRS using meters, which is EPSG: 32735 for southern africa. One can change a shapefiles CRS in QGIS3 by importing the shapefile into QGIS3 and then right-click the imported shapefile, select export, select save features as, and change the CRS in the drop-down.
- 1b) Line 90 of geographical_segmentation.py contains the original CRS. The CRS for the study area shapefile should be reflected in this line of code.
-2) roofs_4326.shp and fb_roofs_4326.shp: shapefiles with OpenStreetMaps buildings and Facebook’s population datasets. These can be downloaded from https://data.humdata.org/search?q=OpenStreetMap+buildings&ext_search_source=main-nav and https://data.humdata.org/dataset/highresolutionpopulationdensitymaps, respectively.
- 2a) Save the datasets in shapefiles using the longitude and latitude CRS (EPSG: 4326).
-3) roads_4326.shp and rivers_4326.shp: shapefiles with roads and rivers boundaries in your study area. These can be downloaded from https://data.humdata.org/search?q=openstreetmaps+roads&ext_search_source=main-nav and https://data.humdata.org/search?q=openstreetmaps+waterways&ext_search_source=main-nav, repectively.
- 3a) Save the datasets in shapefiles using the longitude and latitude CRS (EPSG: 4326).
+1) *study_area_32735.shp*: boundary of study area. We created this by drawing the boundary on QGIS. If the study area is an administrative region (e.g. country, state, district) then there are possibly publicly available shapefiles. A good place to look for such files is the HumData website (https://data.humdata.org/).<br>
+ 1a) This should be in a CRS using meters, which is EPSG: 32735 for southern africa. One can change a shapefiles CRS in QGIS3 by importing the shapefile into QGIS3 and then right-click the imported shapefile, select export, select save features as, and change the CRS in the drop-down.<br>
+ 1b) Line 90 of geographical_segmentation.py contains the original CRS. The CRS for the study area shapefile should be reflected in this line of code.<br>
+2) *roofs_4326.shp* and *fb_roofs_4326.shp*: shapefiles with OpenStreetMaps buildings and Facebook’s population datasets. These can be downloaded from https://data.humdata.org/search?q=OpenStreetMap+buildings&ext_search_source=main-nav and https://data.humdata.org/dataset/highresolutionpopulationdensitymaps, respectively.<br>
+ 2a) Save the datasets in shapefiles using the longitude and latitude CRS (EPSG: 4326).<br>
+3) *roads_4326.shp* and *rivers_4326.shp*: shapefiles with roads and rivers boundaries in your study area. These can be downloaded from https://data.humdata.org/search?q=openstreetmaps+roads&ext_search_source=main-nav and https://data.humdata.org/search?q=openstreetmaps+waterways&ext_search_source=main-nav, repectively.<br>
+ 3a) Save the datasets in shapefiles using the longitude and latitude CRS (EPSG: 4326).<br>
 
 ## Running the code
 
@@ -76,9 +80,8 @@ To run the Jupyter Notebook, open Jupyter Notebook, navigate to the local direct
 
 ## Authors
 
-* **Nate Vernon**
-* **Valentina Brailovskaya**
-
+* [**Nate Vernon**](https://www.idinsight.org/full-team-1/nate-vernon)
+* [**Valentina Brailovskaya**](https://www.idinsight.org/full-team-1/valentina-brailovskaya)
 
 
 ## License
