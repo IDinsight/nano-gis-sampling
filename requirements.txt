@@ -1,0 +1,7 @@
+pip install numpy
+pip install pandas
+pip install matplotlib
+pip install shapely
+pip install shapefile
+pip install functools
+pip install pyproj
