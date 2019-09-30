@@ -60,7 +60,7 @@ pip install package_name
 The input files with pre-processing instructed are listed below. All of these files should be saved in the shapefiles folder. 
 1) *study_area_32735.shp*: boundary of study area. We created this by drawing the boundary on QGIS. If the study area is an administrative region (e.g. country, state, district) then there are possibly publicly available shapefiles. A good place to look for such files is the [HumData website](https://data.humdata.org/).<br>
  1a) This should be in a CRS using meters, which is EPSG: 32735 for southern africa. One can change a shapefiles CRS in QGIS3 by importing the shapefile into QGIS3 and then right-click the imported shapefile, select export, select save features as, and change the CRS in the drop-down.<br>
- 1b) A description of CRS is [here](https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/coordinate_reference_systems.html).
+ 1b) A description of CRS is [here](https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/coordinate_reference_systems.html).<br>
  1c) Line 90 of geographical_segmentation.py contains the original CRS. The CRS for the study area shapefile should be reflected in this line of code.<br>
 2) *roofs_4326.shp* and *fb_roofs_4326.shp*: shapefiles with [OpenStreetMaps buildings](https://data.humdata.org/search?q=OpenStreetMap+buildings&ext_search_source=main-nav) and [Facebook’s population](https://data.humdata.org/dataset/highresolutionpopulationdensitymaps) datasets.<br>
  2a) Save the datasets in shapefiles using the longitude and latitude CRS (EPSG: 4326).<br>
@@ -74,6 +74,7 @@ The code can be ran from the python terminal or Jupyter Notebook.
 To run the code from the ptyhon terminal, open the python terminal, navigate to the local directory with the GitHub repo, and enter the code below:
 
 ```
+cd enter_local_directory
 python geographic_segmentation.py
 ```
 
