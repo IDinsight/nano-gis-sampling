@@ -47,7 +47,7 @@ The code requires a number of python packages, file structure and input/output i
 
 ### Installing Prerequisites
 
-To install all prequisites, you first need to download python and Jupyter Notebook. An easy way to do so is to download these through Anaconda (https://www.anaconda.com/distribution/).
+To install all prequisites, you first need to download python and Jupyter Notebook. An easy way to do so is to download these through [Anaconda](https://www.anaconda.com/distribution/).
 
 Then, each package used in the analysis can be downloaded by entering the command below in the python terminal.
 
@@ -58,12 +58,13 @@ pip install package_name
 ### Assembling Input Files
 
 The input files with pre-processing instructed are listed below. All of these files should be saved in the shapefiles folder. 
-1) *study_area_32735.shp*: boundary of study area. We created this by drawing the boundary on QGIS. If the study area is an administrative region (e.g. country, state, district) then there are possibly publicly available shapefiles. A good place to look for such files is the HumData website (https://data.humdata.org/).<br>
+1) *study_area_32735.shp*: boundary of study area. We created this by drawing the boundary on QGIS. If the study area is an administrative region (e.g. country, state, district) then there are possibly publicly available shapefiles. A good place to look for such files is the [HumData website](https://data.humdata.org/).<br>
  1a) This should be in a CRS using meters, which is EPSG: 32735 for southern africa. One can change a shapefiles CRS in QGIS3 by importing the shapefile into QGIS3 and then right-click the imported shapefile, select export, select save features as, and change the CRS in the drop-down.<br>
- 1b) Line 90 of geographical_segmentation.py contains the original CRS. The CRS for the study area shapefile should be reflected in this line of code.<br>
-2) *roofs_4326.shp* and *fb_roofs_4326.shp*: shapefiles with OpenStreetMaps buildings and Facebook’s population datasets. These can be downloaded from https://data.humdata.org/search?q=OpenStreetMap+buildings&ext_search_source=main-nav and https://data.humdata.org/dataset/highresolutionpopulationdensitymaps, respectively.<br>
+ 1b) A description of CRS is [here](https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/coordinate_reference_systems.html).
+ 1c) Line 90 of geographical_segmentation.py contains the original CRS. The CRS for the study area shapefile should be reflected in this line of code.<br>
+2) *roofs_4326.shp* and *fb_roofs_4326.shp*: shapefiles with [OpenStreetMaps buildings](https://data.humdata.org/search?q=OpenStreetMap+buildings&ext_search_source=main-nav) and [Facebook’s population](https://data.humdata.org/dataset/highresolutionpopulationdensitymaps) datasets.<br>
  2a) Save the datasets in shapefiles using the longitude and latitude CRS (EPSG: 4326).<br>
-3) *roads_4326.shp* and *rivers_4326.shp*: shapefiles with roads and rivers boundaries in your study area. These can be downloaded from https://data.humdata.org/search?q=openstreetmaps+roads&ext_search_source=main-nav and https://data.humdata.org/search?q=openstreetmaps+waterways&ext_search_source=main-nav, repectively.<br>
+3) *roads_4326.shp* and *rivers_4326.shp*: shapefiles with [roads](https://data.humdata.org/search?q=openstreetmaps+roads&ext_search_source=main-nav) and [rivers](https://data.humdata.org/search?q=openstreetmaps+waterways&ext_search_source=main-nav) boundaries in your study area.<br>
  3a) Save the datasets in shapefiles using the longitude and latitude CRS (EPSG: 4326).<br>
 
 ## Running the code
