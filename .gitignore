@@ -8,3 +8,4 @@ env/
 *.pyc
 __pycache__/
 config
+.ipynb_checkpoints

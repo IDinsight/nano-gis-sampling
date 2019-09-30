@@ -19,13 +19,9 @@ The geographic segmentation is implemented in Python as follows:
 
 ## Getting Started
 
-The code requires a number of python packages, file structure and input/output information. These are described below.
-
-**Packages:** os, pandas, numpy, matplotlib, shapely, shapefile, functools, pyproj.
-
 **File structure:**
-1) *geographical_segmentation.ipynb*: the main python script as a Jupyter Notebook,
-2) *geographical_segmentation.py*: the main python script (idential to geographical_segmentation.ipynb),
+1) *geographical_segmentation.ipynb*: the main Python script as a Jupyter Notebook,
+2) *geographical_segmentation.py*: the main Python script (idential to geographical_segmentation.ipynb),
 3) *functions/clean_data.py*: user built functions to clean data,
 4) *functions/mapping.py*: user built functions to create maps,
 5) *shapefiles*: folder to contain all Shapefiles used in analysis,
@@ -47,12 +43,12 @@ The code requires a number of python packages, file structure and input/output i
 
 ### Installing Prerequisites
 
-To install all prequisites, you first need to download python and Jupyter Notebook. An easy way to do so is to download these through [Anaconda](https://www.anaconda.com/distribution/).
+To install all prequisites, you first need to download Python and Jupyter Notebook. An easy way to do so is to download these through [Anaconda](https://www.anaconda.com/distribution/).
 
-Then, each package used in the analysis can be downloaded by entering the command below in the python terminal.
+Then, the Python modules required to run the analysis can be installed using the requirements.txt file.
 
 ```
-pip install package_name
+pip install -r requirements.txt
 ```
 
 ### Assembling Input Files
@@ -69,9 +65,9 @@ The input files with pre-processing instructed are listed below. All of these fi
 
 ## Running the code
 
-The code can be ran from the python terminal or Jupyter Notebook. 
+The code can be ran from the Python terminal or Jupyter Notebook. 
 
-To run the code from the ptyhon terminal, open the python terminal, navigate to the local directory with the GitHub repo, and enter the code below:
+To run the code from the Python terminal, open the Python terminal, navigate to the local directory with the GitHub repo, and enter the code below:
 
 ```
 cd enter_local_directory
@@ -88,4 +84,4 @@ To run the Jupyter Notebook, open Jupyter Notebook, navigate to the local direct
 
 ## License
 
-This project is licensed under the GPLv3 license - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the GPLv3 license - see the [LICENSE](LICENSE) file for details.
