@@ -6,7 +6,7 @@ Gathering accurate information in rural areas is often costly and difficult, whi
 
 Further, we identified the need to collect household-level data from a representative sample of households. However, there was a lack of reliable and up-to-date list of households (or villages) that we could use as a sampling frame (and from which to draw a sample). An additional challenge is Nano’s mandate to be scalable and provide information at low cost, so censusing the whole chiefdom to create a sampling frame was not an option. Therefore, we strove to create a sampling methodology that was economical, scalable and easy for surveyors to implement.
 
-This notebook contains code to implement the geographic segmentation portion of Nano's sampling strategy. A more detailed description is contained in the corresponding blog post (LINK).
+This notebook contains code to implement the geographic segmentation portion of Nano's sampling strategy. A more detailed description is contained in the corresponding [blog post](https://github.com/IDinsight/nano-gis-sampling).
 
 ## Geographic Segmentation Steps
 
