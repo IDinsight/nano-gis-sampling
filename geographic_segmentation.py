@@ -4,7 +4,7 @@
 # # Geographic Segmentation
 # **Authors:** Nate Vernon and Valentina Brailovskaya
 # 
-# **Documentation:** Please reference the IDinsight blog post here (LINK) and the readme on GitHib here (https://github.com/IDinsight/nano-gis-sampling).
+# **Documentation:** Please reference the IDinsight blog post [here](https://medium.com/idinsight-blog/geographic-sampling-methodology-case-of-nano-44bbdeb30f57) and the readme on GitHib [here](https://github.com/IDinsight/nano-gis-sampling).
 # 
 # **This notebook provides the python portion of code to implement Nano's geographical segmentation strategy.** There are 5 key steps in this notebook:<br>
 # 1) Put all the shapefiles on the map, <br>
@@ -31,9 +31,9 @@
 # **Other notes:**<br>
 # 1) The code relies on many user built functions stored in the Functions folder,<br>
 # 2) The boundary of the study area should be in a coordinate system using meters (e.g. EPSG: 32735 for southern Africa). The other shapefiles and data should be in the standard longitude and latitude coordinate system (EPSG: 4326),<br>
-# 3) Facebook's geospatial population estimates are available here: https://data.humdata.org/dataset/highresolutionpopulationdensitymaps,<br>
-# 4) Rooftop GPS coordinates are available here: https://data.humdata.org/search?q=OpenStreetMap+buildings&ext_search_source=main-nav,<br>
-# 5) Road and waterway data are available here: https://data.humdata.org/search?q=openstreetmaps+roads&ext_search_source=main-nav and https://data.humdata.org/search?q=openstreetmaps+waterways&ext_search_source=main-nav.
+# 3) Facebook's geospatial population estimates are available [here](https://data.humdata.org/dataset/highresolutionpopulationdensitymaps),<br>
+# 4) Rooftop GPS coordinates are available [here](https://data.humdata.org/search?q=OpenStreetMap+buildings&ext_search_source=main-nav),<br>
+# 5) Road and waterway data are available [here](https://data.humdata.org/search?q=openstreetmaps+roads&ext_search_source=main-nav and https://data.humdata.org/search?q=openstreetmaps+waterways&ext_search_source=main-nav).
 
 # ## 0) Set-up
 
@@ -405,10 +405,6 @@ df_grids_final_clean['category'].value_counts() / df_grids_final_clean.shape[0]
 # study area
 clean_data.export_shapefile(df = df_study_area, shape_name = 'shape', 
                             field_names = [['shape_id', 'N']], file_name = 'shapefiles/study_area_4326')
-
-# grids/EAs
-clean_data.export_shapefile(df = df_grids.reset_index(), shape_name = 'shape', 
-                            field_names = [['index', 'N']], file_name = 'shapefiles/grids_4326')
 
 # roads
 clean_data.export_shapefile(df = df_roads_final, shape_name = 'shape', 

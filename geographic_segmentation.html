@@ -11776,7 +11776,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Geographic-Segmentation">Geographic Segmentation<a class="anchor-link" href="#Geographic-Segmentation">&#182;</a></h1><p><strong>Authors:</strong> Nate Vernon and Valentina Brailovskaya</p>
-<p><strong>Documentation:</strong> Please reference the IDinsight blog post here (LINK) and the readme on GitHib here (<a href="https://github.com/IDinsight/nano-gis-sampling">https://github.com/IDinsight/nano-gis-sampling</a>).</p>
+<p><strong>Documentation:</strong> Please reference the IDinsight blog post <a href="https://medium.com/idinsight-blog/geographic-sampling-methodology-case-of-nano-44bbdeb30f57">here</a> and the readme on GitHib <a href="https://github.com/IDinsight/nano-gis-sampling">here</a>.</p>
 <p><strong>This notebook provides the python portion of code to implement Nano's geographical segmentation strategy.</strong> There are 5 key steps in this notebook:<br>
 1) Put all the shapefiles on the map, <br>
 2) Divide the total area into smaller cells (we call them enumeration areas - EAs), <br>
@@ -11798,9 +11798,9 @@ div#notebook {
 <p><strong>Other notes:</strong><br>
 1) The code relies on many user built functions stored in the Functions folder,<br>
 2) The boundary of the study area should be in a coordinate system using meters (e.g. EPSG: 32735 for southern Africa). The other shapefiles and data should be in the standard longitude and latitude coordinate system (EPSG: 4326),<br>
-3) Facebook's geospatial population estimates are available here: <a href="https://data.humdata.org/dataset/highresolutionpopulationdensitymaps">https://data.humdata.org/dataset/highresolutionpopulationdensitymaps</a>,<br>
-4) Rooftop GPS coordinates are available here: <a href="https://data.humdata.org/search?q=OpenStreetMap+buildings&amp;ext_search_source=main-nav">https://data.humdata.org/search?q=OpenStreetMap+buildings&amp;ext_search_source=main-nav</a>,<br>
-5) Road and waterway data are available here: <a href="https://data.humdata.org/search?q=openstreetmaps+roads&amp;ext_search_source=main-nav">https://data.humdata.org/search?q=openstreetmaps+roads&amp;ext_search_source=main-nav</a> and <a href="https://data.humdata.org/search?q=openstreetmaps+waterways&amp;ext_search_source=main-nav">https://data.humdata.org/search?q=openstreetmaps+waterways&amp;ext_search_source=main-nav</a>.</p>
+3) Facebook's geospatial population estimates are available <a href="https://data.humdata.org/dataset/highresolutionpopulationdensitymaps">here</a>,<br>
+4) Rooftop GPS coordinates are available <a href="https://data.humdata.org/search?q=OpenStreetMap+buildings&amp;ext_search_source=main-nav">here</a>,<br>
+5) Road and waterway data are available <a href="https://data.humdata.org/search?q=openstreetmaps+roads&amp;ext_search_source=main-nav and https://data.humdata.org/search?q=openstreetmaps+waterways&amp;ext_search_source=main-nav">here</a>.</p>
 
 </div>
 </div>
@@ -24114,10 +24114,6 @@ Name: category, dtype: float64</pre>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># study area</span>
 <span class="n">clean_data</span><span class="o">.</span><span class="n">export_shapefile</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">df_study_area</span><span class="p">,</span> <span class="n">shape_name</span> <span class="o">=</span> <span class="s1">&#39;shape&#39;</span><span class="p">,</span> 
                             <span class="n">field_names</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;shape_id&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">]],</span> <span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;shapefiles/study_area_4326&#39;</span><span class="p">)</span>
-
-<span class="c1"># grids/EAs</span>
-<span class="n">clean_data</span><span class="o">.</span><span class="n">export_shapefile</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">df_grids</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">shape_name</span> <span class="o">=</span> <span class="s1">&#39;shape&#39;</span><span class="p">,</span> 
-                            <span class="n">field_names</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">]],</span> <span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;shapefiles/grids_4326&#39;</span><span class="p">)</span>
 
 <span class="c1"># roads</span>
 <span class="n">clean_data</span><span class="o">.</span><span class="n">export_shapefile</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">df_roads_final</span><span class="p">,</span> <span class="n">shape_name</span> <span class="o">=</span> <span class="s1">&#39;shape&#39;</span><span class="p">,</span> 
